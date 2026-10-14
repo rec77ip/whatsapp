@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WhatsApp Clone v2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- #app = the phone window. data-theme="dark" or "light" switches every colour (see style.css variables).
+     Inside: #list-view (chats), #chat-view (one chat), #info (contact page), #tools (floating buttons). -->
+<div id="app" data-theme="dark">
+
+  <!-- SCREEN 1: chat list -->
+  <div id="list-view">
+    <header class="bar"><h1>WhatsApp</h1><button>&#128247;</button><button>&#8942;</button></header>
+    <div class="search"><span>&#128269;</span><input id="search" placeholder="Ask Meta AI or Search"></div>
+    <!-- each .item = one contact. data-* attributes store its name, number and about text -->
+    <div id="chat-list">
+<div class="item" data-id="c1" data-name="Mum" data-num="+254 710 200 100" data-about="Hey there! I am using WhatsApp.">
+  <div class="av" data-av="c1" style="--h:0"><span>M</span></div>
+  <div class="info"><div class="top"><b>Mum</b><small>12:26 AM</small></div><div class="row"><p class="last">Sawa mtoto wangu. Ukifika nipigie</p></div></div>
+</div>
+<div class="item unread" data-id="c2" data-name="Dad" data-num="+254 713 217 123" data-about="At work">
+  <div class="av" data-av="c2" style="--h:47"><span>D</span></div>
+  <div class="info"><div class="top"><b>Dad</b><small>12:33 AM</small></div><div class="row"><p class="last">Good. Be careful on the road</p><span class="badge">6</span></div></div>
+</div>
+<div class="item" data-id="c3" data-name="Brayo" data-num="+254 716 234 146" data-about="Mtaani">
+  <div class="av st" data-av="c3" style="--h:94"><span>B</span></div>
+  <div class="info"><div class="top"><b>Brayo</b><small>12:40 AM</small></div><div class="row"><p class="last">Poa tunakungoja</p></div></div>
+</div>
+<div class="item" data-id="c4" data-name="Wanjiku" data-num="+254 719 251 169" data-about="Busy">
+  <div class="av" data-av="c4" style="--h:141"><span>W</span></div>
+  <div class="info"><div class="top"><b>Wanjiku</b><small>12:47 AM</small></div><div class="row"><p class="last">Mimi na Kamau 🍖</p></div></div>
+</div>
+<div class="item" data-id="c5" data-name="Otis" data-num="+254 722 268 192" data-about="Available">
+  <div class="av" data-av="c5" style="--h:188"><span>O</span></div>
+  <div class="info"><div class="top"><b>Otis</b><small>12:54 AM</small></div><div class="row"><p class="last">Hakuna shida, tunakuwait</p></div></div>
+</div>
+<div class="item unread" data-id="c6" data-name="Shiku" data-num="+254 725 285 215" data-about="Available">
+  <div class="av" data-av="c6" style="--h:235"><span>S</span></div>
+  <div class="info"><div class="top"><b>Shiku</b><small>12:01 AM</small></div><div class="row"><p class="last">Nitakutumia nyingine</p><span class="badge">26</span></div></div>
+</div>
+<div class="item" data-id="c7" data-name="Mzee Jim" data-num="+254 728 302 238" data-about="Available">
+  <div class="av" data-av="c7" style="--h:282"><span>MJ</span></div>
+  <div class="info"><div class="top"><b>Mzee Jim</b><small>12:08 AM</small></div><div class="row"><p class="last">Nitafika mapema</p></div></div>
+</div>
+<div class="item" data-id="c8" data-name="Achi" data-num="+254 731 319 261" data-about="Available">
+  <div class="av" data-av="c8" style="--h:329"><span>A</span></div>
+  <div class="info"><div class="top"><b>Achi</b><small>12:15 AM</small></div><div class="row"><p class="last">Niko poa, tuongee kesho</p></div></div>
+</div>
+<div class="item" data-id="c9" data-name="Cheche" data-num="+254 734 336 284" data-about="Available">
+  <div class="av st" data-av="c9" style="--h:16"><span>C</span></div>
+  <div class="info"><div class="top"><b>Cheche</b><small>12:22 AM</small></div><div class="row"><p class="last">Nitakuletea 🔥</p></div></div>
+</div>
+<div class="item unread" data-id="c10" data-name="Njeri" data-num="+254 737 353 307" data-about="Available">
+  <div class="av" data-av="c10" style="--h:63"><span>N</span></div>
+  <div class="info"><div class="top"><b>Njeri</b><small>12:29 AM</small></div><div class="row"><p class="last">Utaniambia ukifika</p><span class="badge">16</span></div></div>
+</div>
+<div class="item" data-id="c11" data-name="Baba Kevo" data-num="+254 740 370 330" data-about="Available">
+  <div class="av" data-av="c11" style="--h:110"><span>BK</span></div>
+  <div class="info"><div class="top"><b>Baba Kevo</b><small>12:36 AM</small></div><div class="row"><p class="last">Ndiyo, nitaleta tickets</p></div></div>
+</div>
+<div class="item" data-id="c12" data-name="Kip" data-num="+254 743 387 353" data-about="Available">
+  <div class="av" data-av="c12" style="--h:157"><span>K</span></div>
+  <div class="info"><div class="top"><b>Kip</b><small>12:43 AM</small></div><div class="row"><p class="last">Sawa nitaangalia asubuhi</p></div></div>
+</div>
+<div class="item" data-id="c13" data-name="Mwas" data-num="+254 746 404 376" data-about="Available">
+  <div class="av" data-av="c13" style="--h:204"><span>M</span></div>
+  <div class="info"><div class="top"><b>Mwas</b><small>12:50 AM</small></div><div class="row"><p class="last">Haraka, mvua inanyesha</p></div></div>
+</div>
+<div class="item unread" data-id="c14" data-name="Wafula" data-num="+254 749 421 399" data-about="Available">
+  <div class="av" data-av="c14" style="--h:251"><span>W</span></div>
+  <div class="info"><div class="top"><b>Wafula</b><small>12:57 AM</small></div><div class="row"><p class="last">Nimeipata, asante!</p><span class="badge">6</span></div></div>
+</div>
+<div class="item" data-id="c15" data-name="Atieno" data-num="+254 752 438 422" data-about="Available">
+  <div class="av st" data-av="c15" style="--h:298"><span>A</span></div>
+  <div class="info"><div class="top"><b>Atieno</b><small>12:04 AM</small></div><div class="row"><p class="last">Niko fiti. Tukutane wikendi</p></div></div>
+</div>
+<div class="item" data-id="c16" data-name="Mambo" data-num="+254 755 455 445" data-about="Available">
+  <div class="av" data-av="c16" style="--h:345"><span>M</span></div>
+  <div class="info"><div class="top"><b>Mambo</b><small>12:11 AM</small></div><div class="row"><p class="last">Kuna kitu nataka kuuliza</p></div></div>
+</div>
+<div class="item" data-id="c17" data-name="Muthoni" data-num="+254 758 472 468" data-about="Available">
+  <div class="av" data-av="c17" style="--h:32"><span>M</span></div>
+  <div class="info"><div class="top"><b>Muthoni</b><small>12:18 AM</small></div><div class="row"><p class="last">Karibu sana 🙏</p></div></div>
+</div>
+<div class="item unread" data-id="c18" data-name="Sisto" data-num="+254 761 489 491" data-about="Available">
+  <div class="av" data-av="c18" style="--h:79"><span>S</span></div>
+  <div class="info"><div class="top"><b>Sisto</b><small>12:25 AM</small></div><div class="row"><p class="last">Nakuja kukuona</p><span class="badge">26</span></div></div>
+</div>
+<div class="item" data-id="c19" data-name="Biggie" data-num="+254 764 506 514" data-about="Available">
+  <div class="av" data-av="c19" style="--h:126"><span>B</span></div>
+  <div class="info"><div class="top"><b>Biggie</b><small>12:32 AM</small></div><div class="row"><p class="last">Tutakula nyama choma</p></div></div>
+</div>
+<div class="item" data-id="c20" data-name="Kuya" data-num="+254 767 523 537" data-about="Available">
+  <div class="av" data-av="c20" style="--h:173"><span>K</span></div>
+  <div class="info"><div class="top"><b>Kuya</b><small>12:39 AM</small></div><div class="row"><p class="last">Saa moja asubuhi</p></div></div>
+</div>
+<div class="item" data-id="c21" data-name="Mr James Carter - Video Editing" data-num="+1 555 0100" data-about="Video editor client (USA)">
+  <div class="av st" data-av="c21" style="--h:220"><span>JC</span></div>
+  <div class="info"><div class="top"><b>Mr James Carter - Video Editing</b><small>12:46 AM</small></div><div class="row"><p class="last">Great, sending the Drive link now</p></div></div>
+</div>
+<div class="item unread" data-id="c22" data-name="Miss Emily Johnson - Video Editing" data-num="+1 555 0107" data-about="Video editor client (USA)">
+  <div class="av" data-av="c22" style="--h:267"><span>EJ</span></div>
+  <div class="info"><div class="top"><b>Miss Emily Johnson - Video Editing</b><small>12:53 AM</small></div><div class="row"><p class="last">Perfect, how much for a 5 min reel?</p><span class="badge">16</span></div></div>
+</div>
+<div class="item" data-id="c23" data-name="Mr Michael Brooks - Video Editing" data-num="+1 555 0114" data-about="Video editor client (USA)">
+  <div class="av" data-av="c23" style="--h:314"><span>MB</span></div>
+  <div class="info"><div class="top"><b>Mr Michael Brooks - Video Editing</b><small>12:00 AM</small></div><div class="row"><p class="last">Awesome, I&#x27;ll send 10 clips tonight</p></div></div>
+</div>
+<div class="item" data-id="c24" data-name="Miss Ashley Turner - Video Editing" data-num="+1 555 0121" data-about="Video editor client (USA)">
+  <div class="av" data-av="c24" style="--h:1"><span>AT</span></div>
+  <div class="info"><div class="top"><b>Miss Ashley Turner - Video Editing</b><small>12:07 AM</small></div><div class="row"><p class="last">Got another wedding video for you</p></div></div>
+</div>
+<div class="item" data-id="c25" data-name="Mr Daniel Hughes - Video Editing" data-num="+1 555 0128" data-about="Video editor client (USA)">
+  <div class="av" data-av="c25" style="--h:48"><span>DH</span></div>
+  <div class="info"><div class="top"><b>Mr Daniel Hughes - Video Editing</b><small>12:14 AM</small></div><div class="row"><p class="last">Deadline is Friday, is that okay?</p></div></div>
+</div>
+<div class="item unread" data-id="c26" data-name="Miss Jessica Moore - Video Editing" data-num="+1 555 0135" data-about="Video editor client (USA)">
+  <div class="av" data-av="c26" style="--h:95"><span>JM</span></div>
+  <div class="info"><div class="top"><b>Miss Jessica Moore - Video Editing</b><small>12:21 AM</small></div><div class="row"><p class="last">Great, please add our logo at the end</p><span class="badge">6</span></div></div>
+</div>
+<div class="item" data-id="c27" data-name="Mr Ryan Mitchell - Video Editing" data-num="+1 555 0142" data-about="Video editor client (USA)">
+  <div class="av st" data-av="c27" style="--h:142"><span>RM</span></div>
+  <div class="info"><div class="top"><b>Mr Ryan Mitchell - Video Editing</b><small>12:28 AM</small></div><div class="row"><p class="last">Great, sending the Drive link now</p></div></div>
+</div>
+<div class="item" data-id="c28" data-name="Miss Megan Collins - Video Editing" data-num="+1 555 0149" data-about="Video editor client (USA)">
+  <div class="av" data-av="c28" style="--h:189"><span>MC</span></div>
+  <div class="info"><div class="top"><b>Miss Megan Collins - Video Editing</b><small>12:35 AM</small></div><div class="row"><p class="last">Perfect, how much for a 5 min reel?</p></div></div>
+</div>
+<div class="item" data-id="c29" data-name="Mr Tyler Reed - Video Editing" data-num="+1 555 0156" data-about="Video editor client (USA)">
+  <div class="av" data-av="c29" style="--h:236"><span>TR</span></div>
+  <div class="info"><div class="top"><b>Mr Tyler Reed - Video Editing</b><small>12:42 AM</small></div><div class="row"><p class="last">Awesome, I&#x27;ll send 10 clips tonight</p></div></div>
+</div>
+<div class="item unread" data-id="c30" data-name="Miss Olivia Bennett - Video Editing" data-num="+1 555 0163" data-about="Video editor client (USA)">
+  <div class="av" data-av="c30" style="--h:283"><span>OB</span></div>
+  <div class="info"><div class="top"><b>Miss Olivia Bennett - Video Editing</b><small>12:49 AM</small></div><div class="row"><p class="last">Got another wedding video for you</p><span class="badge">26</span></div></div>
+</div>
+<div class="item" data-id="c31" data-name="Mr Andrew Foster - Video Editing" data-num="+1 555 0170" data-about="Video editor client (USA)">
+  <div class="av" data-av="c31" style="--h:330"><span>AF</span></div>
+  <div class="info"><div class="top"><b>Mr Andrew Foster - Video Editing</b><small>12:56 AM</small></div><div class="row"><p class="last">Deadline is Friday, is that okay?</p></div></div>
+</div>
+<div class="item" data-id="c32" data-name="Miss Hannah Cooper - Video Editing" data-num="+1 555 0177" data-about="Video editor client (USA)">
+  <div class="av" data-av="c32" style="--h:17"><span>HC</span></div>
+  <div class="info"><div class="top"><b>Miss Hannah Cooper - Video Editing</b><small>12:03 AM</small></div><div class="row"><p class="last">Great, please add our logo at the end</p></div></div>
+</div>
+<div class="item" data-id="c33" data-name="Mr Jason Parker - Video Editing" data-num="+1 555 0184" data-about="Video editor client (USA)">
+  <div class="av st" data-av="c33" style="--h:64"><span>JP</span></div>
+  <div class="info"><div class="top"><b>Mr Jason Parker - Video Editing</b><small>12:10 AM</small></div><div class="row"><p class="last">Great, sending the Drive link now</p></div></div>
+</div>
+<div class="item unread" data-id="c34" data-name="Miss Rachel Murphy - Video Editing" data-num="+1 555 0191" data-about="Video editor client (USA)">
+  <div class="av" data-av="c34" style="--h:111"><span>RM</span></div>
+  <div class="info"><div class="top"><b>Miss Rachel Murphy - Video Editing</b><small>12:17 AM</small></div><div class="row"><p class="last">Perfect, how much for a 5 min reel?</p><span class="badge">16</span></div></div>
+</div>
+<div class="item" data-id="c35" data-name="Mr Kevin Sullivan - Video Editing" data-num="+1 555 0198" data-about="Video editor client (USA)">
+  <div class="av" data-av="c35" style="--h:158"><span>KS</span></div>
+  <div class="info"><div class="top"><b>Mr Kevin Sullivan - Video Editing</b><small>12:24 AM</small></div><div class="row"><p class="last">Awesome, I&#x27;ll send 10 clips tonight</p></div></div>
+</div>
+<div class="item" data-id="c36" data-name="Mr Oliver Smith - Video Editing" data-num="+44 7700 900000" data-about="Video editor client (UK)">
+  <div class="av" data-av="c36" style="--h:205"><span>OS</span></div>
+  <div class="info"><div class="top"><b>Mr Oliver Smith - Video Editing</b><small>12:31 AM</small></div><div class="row"><p class="last">Got another wedding video for you</p></div></div>
+</div>
+<div class="item" data-id="c37" data-name="Miss Charlotte Evans - Video Editing" data-num="+44 7700 900013" data-about="Video editor client (UK)">
+  <div class="av" data-av="c37" style="--h:252"><span>CE</span></div>
+  <div class="info"><div class="top"><b>Miss Charlotte Evans - Video Editing</b><small>12:38 AM</small></div><div class="row"><p class="last">Deadline is Friday, is that okay?</p></div></div>
+</div>
+<div class="item unread" data-id="c38" data-name="Mr Harry Thompson - Video Editing" data-num="+44 7700 900026" data-about="Video editor client (UK)">
+  <div class="av" data-av="c38" style="--h:299"><span>HT</span></div>
+  <div class="info"><div class="top"><b>Mr Harry Thompson - Video Editing</b><small>12:45 AM</small></div><div class="row"><p class="last">Great, please add our logo at the end</p><span class="badge">6</span></div></div>
+</div>
+<div class="item" data-id="c39" data-name="Miss Amelia Clarke - Video Editing" data-num="+44 7700 900039" data-about="Video editor client (UK)">
+  <div class="av st" data-av="c39" style="--h:346"><span>AC</span></div>
+  <div class="info"><div class="top"><b>Miss Amelia Clarke - Video Editing</b><small>12:52 AM</small></div><div class="row"><p class="last">Great, sending the Drive link now</p></div></div>
+</div>
+<div class="item" data-id="c40" data-name="Mr George Wilson - Video Editing" data-num="+44 7700 900052" data-about="Video editor client (UK)">
+  <div class="av" data-av="c40" style="--h:33"><span>GW</span></div>
+  <div class="info"><div class="top"><b>Mr George Wilson - Video Editing</b><small>12:59 AM</small></div><div class="row"><p class="last">Perfect, how much for a 5 min reel?</p></div></div>
+</div>
+<div class="item" data-id="c41" data-name="Miss Isla Roberts - Video Editing" data-num="+44 7700 900065" data-about="Video editor client (UK)">
+  <div class="av" data-av="c41" style="--h:80"><span>IR</span></div>
+  <div class="info"><div class="top"><b>Miss Isla Roberts - Video Editing</b><small>12:06 AM</small></div><div class="row"><p class="last">Awesome, I&#x27;ll send 10 clips tonight</p></div></div>
+</div>
+<div class="item unread" data-id="c42" data-name="Mr Jack Taylor - Video Editing" data-num="+44 7700 900078" data-about="Video editor client (UK)">
+  <div class="av" data-av="c42" style="--h:127"><span>JT</span></div>
+  <div class="info"><div class="top"><b>Mr Jack Taylor - Video Editing</b><small>12:13 AM</small></div><div class="row"><p class="last">Got another wedding video for you</p><span class="badge">26</span></div></div>
+</div>
+<div class="item" data-id="c43" data-name="Miss Poppy Walker - Video Editing" data-num="+44 7700 900091" data-about="Video editor client (UK)">
+  <div class="av" data-av="c43" style="--h:174"><span>PW</span></div>
+  <div class="info"><div class="top"><b>Miss Poppy Walker - Video Editing</b><small>12:20 AM</small></div><div class="row"><p class="last">Deadline is Friday, is that okay?</p></div></div>
+</div>
+<div class="item" data-id="c44" data-name="Mr Thomas Wright - Video Editing" data-num="+44 7700 900104" data-about="Video editor client (UK)">
+  <div class="av" data-av="c44" style="--h:221"><span>TW</span></div>
+  <div class="info"><div class="top"><b>Mr Thomas Wright - Video Editing</b><small>12:27 AM</small></div><div class="row"><p class="last">Great, please add our logo at the end</p></div></div>
+</div>
+<div class="item" data-id="c45" data-name="Miss Grace Hall - Video Editing" data-num="+44 7700 900117" data-about="Video editor client (UK)">
+  <div class="av st" data-av="c45" style="--h:268"><span>GH</span></div>
+  <div class="info"><div class="top"><b>Miss Grace Hall - Video Editing</b><small>12:34 AM</small></div><div class="row"><p class="last">Great, sending the Drive link now</p></div></div>
+</div>
+<div class="item unread" data-id="c46" data-name="Mr Callum Edwards - Video Editing" data-num="+44 7700 900130" data-about="Video editor client (UK)">
+  <div class="av" data-av="c46" style="--h:315"><span>CE</span></div>
+  <div class="info"><div class="top"><b>Mr Callum Edwards - Video Editing</b><small>12:41 AM</small></div><div class="row"><p class="last">Perfect, how much for a 5 min reel?</p><span class="badge">16</span></div></div>
+</div>
+<div class="item" data-id="c47" data-name="Miss Sophie Green - Video Editing" data-num="+44 7700 900143" data-about="Video editor client (UK)">
+  <div class="av" data-av="c47" style="--h:2"><span>SG</span></div>
+  <div class="info"><div class="top"><b>Miss Sophie Green - Video Editing</b><small>12:48 AM</small></div><div class="row"><p class="last">Awesome, I&#x27;ll send 10 clips tonight</p></div></div>
+</div>
+<div class="item" data-id="c48" data-name="Mr Liam Turner - Video Editing" data-num="+44 7700 900156" data-about="Video editor client (UK)">
+  <div class="av" data-av="c48" style="--h:49"><span>LT</span></div>
+  <div class="info"><div class="top"><b>Mr Liam Turner - Video Editing</b><small>12:55 AM</small></div><div class="row"><p class="last">Got another wedding video for you</p></div></div>
+</div>
+<div class="item" data-id="c49" data-name="Miss Lucy Harris - Video Editing" data-num="+44 7700 900169" data-about="Video editor client (UK)">
+  <div class="av" data-av="c49" style="--h:96"><span>LH</span></div>
+  <div class="info"><div class="top"><b>Miss Lucy Harris - Video Editing</b><small>12:02 AM</small></div><div class="row"><p class="last">Deadline is Friday, is that okay?</p></div></div>
+</div>
+<div class="item unread" data-id="c50" data-name="Mr Ethan Lewis - Video Editing" data-num="+44 7700 900182" data-about="Video editor client (UK)">
+  <div class="av" data-av="c50" style="--h:143"><span>EL</span></div>
+  <div class="info"><div class="top"><b>Mr Ethan Lewis - Video Editing</b><small>12:09 AM</small></div><div class="row"><p class="last">Great, please add our logo at the end</p><span class="badge">6</span></div></div>
+</div>
+    </div>
+    <button id="fab">&#10010;</button>
+    <nav id="tabs">
+      <div class="tab on"><span class="pill">&#128172;<em>198</em></span>Chats</div>
+      <div class="tab"><span>&#9678;</span>Updates</div>
+      <div class="tab"><span>&#128101;</span>Communities</div>
+      <div class="tab"><span>&#128222;</span>Calls</div>
+    </nav>
+  </div>
+
+  <!-- SCREEN 2: open chat -->
+  <div id="chat-view">
+    <header class="bar">
+      <button id="back">&#8592;</button>
+      <div class="av" id="h-av"><span></span></div>
+      <div id="h-name"><b></b><small></small></div>
+      <button>&#127909;</button><button>&#128222;</button><button>&#8942;</button>
+    </header>
+    <!-- one .pane per contact (messages). Only the .active pane is visible. -->
+    <div id="panes">
+<section class="pane" id="pane-c1"><div class="day">Yesterday</div><div class="m in">Umekula? Usiende kulala njaa 🙏<i>8:00 AM</i></div><div class="m out">Nimekula mum, nimekula 😂<i>10:13 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Nimekula mum, nimekula 😂</div>Sawa mtoto wangu. Ukifika nipigie<i>12:26 AM</i></div></section>
+<section class="pane" id="pane-c2"><div class="day">Yesterday</div><div class="m in">Tuma ile pesa ya rent kesho asubuhi<i>8:07 AM</i></div><div class="m out">Sawa dad, nitatuma saa mbili<i>10:20 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Good. Be careful on the road<i>12:33 AM</i></div></section>
+<section class="pane" id="pane-c3"><div class="day">Yesterday</div><div class="m in">Bro uko wapi? Gari imefika<i>8:14 AM</i></div><div class="m out">Niko stage, dakika tano<i>10:27 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Poa tunakungoja<i>12:40 AM</i></div></section>
+<section class="pane" id="pane-c4"><div class="day">Yesterday</div><div class="m in">Weekend Naivasha tunaenda?<i>8:21 AM</i></div><div class="m out">Niko ndani! Nani anabeba nyama?<i>10:34 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Niko ndani! Nani anabeba nyama?</div>Mimi na Kamau 🍖<i>12:47 AM</i></div></section>
+<section class="pane" id="pane-c5"><div class="day">Yesterday</div><div class="m in">Mbogi iko ready Saturday<i>8:28 AM</i></div><div class="m out">Nitafika late kiasi<i>10:41 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Hakuna shida, tunakuwait<i>12:54 AM</i></div></section>
+<section class="pane" id="pane-c6"><div class="day">Yesterday</div><div class="m in">Uliona ile video ya jana? 😂<i>8:35 AM</i></div><div class="m out">Eh nimekufa kucheka<i>10:48 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Nitakutumia nyingine<i>12:01 AM</i></div></section>
+<section class="pane" id="pane-c7"><div class="day">Yesterday</div><div class="m in">Jioni tunakutana Java?<i>8:42 AM</i></div><div class="m out">Sawa, saa kumi na mbili<i>10:55 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Sawa, saa kumi na mbili</div>Nitafika mapema<i>12:08 AM</i></div></section>
+<section class="pane" id="pane-c8"><div class="day">Yesterday</div><div class="m in">Mambo vipi bro?<i>8:49 AM</i></div><div class="m out">Fiti sana, wewe?<i>10:02 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Niko poa, tuongee kesho<i>12:15 AM</i></div></section>
+<section class="pane" id="pane-c9"><div class="day">Yesterday</div><div class="m in">Chapo na chai asubuhi?<i>8:56 AM</i></div><div class="m out">Hapo umenena ☕<i>10:09 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Nitakuletea 🔥<i>12:22 AM</i></div></section>
+<section class="pane" id="pane-c10"><div class="day">Yesterday</div><div class="m in">Thanks for yesterday 🙏<i>8:03 AM</i></div><div class="m out">Anytime dada<i>10:16 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Anytime dada</div>Utaniambia ukifika<i>12:29 AM</i></div></section>
+<section class="pane" id="pane-c11"><div class="day">Yesterday</div><div class="m in">Mechi ya Gor iko leo<i>8:10 AM</i></div><div class="m out">Tunaenda Kasarani?<i>10:23 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Ndiyo, nitaleta tickets<i>12:36 AM</i></div></section>
+<section class="pane" id="pane-c12"><div class="day">Yesterday</div><div class="m in">Kazi ya kesho imeisha?<i>8:17 AM</i></div><div class="m out">Bado kidogo, nitamaliza usiku<i>10:30 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Sawa nitaangalia asubuhi<i>12:43 AM</i></div></section>
+<section class="pane" id="pane-c13"><div class="day">Yesterday</div><div class="m in">Niko stage ya Ngong<i>8:24 AM</i></div><div class="m out">Ngoja nikuchukue<i>10:37 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Ngoja nikuchukue</div>Haraka, mvua inanyesha<i>12:50 AM</i></div></section>
+<section class="pane" id="pane-c14"><div class="day">Yesterday</div><div class="m in">Pesa ya chama imefika?<i>8:31 AM</i></div><div class="m out">Nimetuma M-Pesa sasa hivi<i>10:44 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Nimeipata, asante!<i>12:57 AM</i></div></section>
+<section class="pane" id="pane-c15"><div class="day">Yesterday</div><div class="m in">Sasa mrembo 😄<i>8:38 AM</i></div><div class="m out">Poa sana, wewe?<i>10:51 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Niko fiti. Tukutane wikendi<i>12:04 AM</i></div></section>
+<section class="pane" id="pane-c16"><div class="day">Yesterday</div><div class="m in">Uko online?<i>8:45 AM</i></div><div class="m out">Ndio niko, niambie<i>10:58 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Ndio niko, niambie</div>Kuna kitu nataka kuuliza<i>12:11 AM</i></div></section>
+<section class="pane" id="pane-c17"><div class="day">Yesterday</div><div class="m in">Sunday service iko saa nne<i>8:52 AM</i></div><div class="m out">Nitakuja na mama<i>10:05 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Karibu sana 🙏<i>12:18 AM</i></div></section>
+<section class="pane" id="pane-c18"><div class="day">Yesterday</div><div class="m in">Dem uko wapi?<i>8:59 AM</i></div><div class="m out">Niko nyumbani, kwani?<i>10:12 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Nakuja kukuona<i>12:25 AM</i></div></section>
+<section class="pane" id="pane-c19"><div class="day">Yesterday</div><div class="m in">Lunch ni mimi leo<i>8:06 AM</i></div><div class="m out">Sawa nitakuja saa sita<i>10:19 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Sawa nitakuja saa sita</div>Tutakula nyama choma<i>12:32 AM</i></div></section>
+<section class="pane" id="pane-c20"><div class="day">Yesterday</div><div class="m in">Bro unaweza nipea ride kesho?<i>8:13 AM</i></div><div class="m out">Sawa, saa ngapi?<i>10:26 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Saa moja asubuhi<i>12:39 AM</i></div></section>
+<section class="pane" id="pane-c21"><div class="day">Yesterday</div><div class="m in">Hi! I saw your work. Can you edit a 10 min YouTube video?<i>8:20 AM</i></div><div class="m out">Yes sure, send the raw footage and I will start today<i>10:33 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, sending the Drive link now<i>12:46 AM</i></div></section>
+<section class="pane" id="pane-c22"><div class="day">Yesterday</div><div class="m in">Do you do colour grading too?<i>8:27 AM</i></div><div class="m out">Yes, colour grading and sound design included<i>10:40 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, colour grading and sound design included</div>Perfect, how much for a 5 min reel?<i>12:53 AM</i></div></section>
+<section class="pane" id="pane-c23"><div class="day">Yesterday</div><div class="m in">Need subtitles on my TikTok clips<i>8:34 AM</i></div><div class="m out">I can add animated captions, no problem<i>10:47 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Awesome, I&#x27;ll send 10 clips tonight<i>12:00 AM</i></div></section>
+<section class="pane" id="pane-c24"><div class="day">Yesterday</div><div class="m in">Thanks for the last edit, the client loved it!<i>8:41 AM</i></div><div class="m out">Happy to hear that 🙌<i>10:54 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Got another wedding video for you<i>12:07 AM</i></div></section>
+<section class="pane" id="pane-c25"><div class="day">Yesterday</div><div class="m in">Can you cut a podcast into 5 shorts?<i>8:48 AM</i></div><div class="m out">Yes, I will add captions and music too<i>10:01 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, I will add captions and music too</div>Deadline is Friday, is that okay?<i>12:14 AM</i></div></section>
+<section class="pane" id="pane-c26"><div class="day">Yesterday</div><div class="m in">Is the intro ready? We are going live Monday<i>8:55 AM</i></div><div class="m out">Almost done, sending a preview in 1 hour<i>10:08 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, please add our logo at the end<i>12:21 AM</i></div></section>
+<section class="pane" id="pane-c27"><div class="day">Yesterday</div><div class="m in">Hi! I saw your work. Can you edit a 10 min YouTube video?<i>8:02 AM</i></div><div class="m out">Yes sure, send the raw footage and I will start today<i>10:15 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, sending the Drive link now<i>12:28 AM</i></div></section>
+<section class="pane" id="pane-c28"><div class="day">Yesterday</div><div class="m in">Do you do colour grading too?<i>8:09 AM</i></div><div class="m out">Yes, colour grading and sound design included<i>10:22 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, colour grading and sound design included</div>Perfect, how much for a 5 min reel?<i>12:35 AM</i></div></section>
+<section class="pane" id="pane-c29"><div class="day">Yesterday</div><div class="m in">Need subtitles on my TikTok clips<i>8:16 AM</i></div><div class="m out">I can add animated captions, no problem<i>10:29 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Awesome, I&#x27;ll send 10 clips tonight<i>12:42 AM</i></div></section>
+<section class="pane" id="pane-c30"><div class="day">Yesterday</div><div class="m in">Thanks for the last edit, the client loved it!<i>8:23 AM</i></div><div class="m out">Happy to hear that 🙌<i>10:36 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Got another wedding video for you<i>12:49 AM</i></div></section>
+<section class="pane" id="pane-c31"><div class="day">Yesterday</div><div class="m in">Can you cut a podcast into 5 shorts?<i>8:30 AM</i></div><div class="m out">Yes, I will add captions and music too<i>10:43 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, I will add captions and music too</div>Deadline is Friday, is that okay?<i>12:56 AM</i></div></section>
+<section class="pane" id="pane-c32"><div class="day">Yesterday</div><div class="m in">Is the intro ready? We are going live Monday<i>8:37 AM</i></div><div class="m out">Almost done, sending a preview in 1 hour<i>10:50 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, please add our logo at the end<i>12:03 AM</i></div></section>
+<section class="pane" id="pane-c33"><div class="day">Yesterday</div><div class="m in">Hi! I saw your work. Can you edit a 10 min YouTube video?<i>8:44 AM</i></div><div class="m out">Yes sure, send the raw footage and I will start today<i>10:57 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, sending the Drive link now<i>12:10 AM</i></div></section>
+<section class="pane" id="pane-c34"><div class="day">Yesterday</div><div class="m in">Do you do colour grading too?<i>8:51 AM</i></div><div class="m out">Yes, colour grading and sound design included<i>10:04 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, colour grading and sound design included</div>Perfect, how much for a 5 min reel?<i>12:17 AM</i></div></section>
+<section class="pane" id="pane-c35"><div class="day">Yesterday</div><div class="m in">Need subtitles on my TikTok clips<i>8:58 AM</i></div><div class="m out">I can add animated captions, no problem<i>10:11 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Awesome, I&#x27;ll send 10 clips tonight<i>12:24 AM</i></div></section>
+<section class="pane" id="pane-c36"><div class="day">Yesterday</div><div class="m in">Thanks for the last edit, the client loved it!<i>8:05 AM</i></div><div class="m out">Happy to hear that 🙌<i>10:18 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Got another wedding video for you<i>12:31 AM</i></div></section>
+<section class="pane" id="pane-c37"><div class="day">Yesterday</div><div class="m in">Can you cut a podcast into 5 shorts?<i>8:12 AM</i></div><div class="m out">Yes, I will add captions and music too<i>10:25 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, I will add captions and music too</div>Deadline is Friday, is that okay?<i>12:38 AM</i></div></section>
+<section class="pane" id="pane-c38"><div class="day">Yesterday</div><div class="m in">Is the intro ready? We are going live Monday<i>8:19 AM</i></div><div class="m out">Almost done, sending a preview in 1 hour<i>10:32 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, please add our logo at the end<i>12:45 AM</i></div></section>
+<section class="pane" id="pane-c39"><div class="day">Yesterday</div><div class="m in">Hi! I saw your work. Can you edit a 10 min YouTube video?<i>8:26 AM</i></div><div class="m out">Yes sure, send the raw footage and I will start today<i>10:39 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, sending the Drive link now<i>12:52 AM</i></div></section>
+<section class="pane" id="pane-c40"><div class="day">Yesterday</div><div class="m in">Do you do colour grading too?<i>8:33 AM</i></div><div class="m out">Yes, colour grading and sound design included<i>10:46 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, colour grading and sound design included</div>Perfect, how much for a 5 min reel?<i>12:59 AM</i></div></section>
+<section class="pane" id="pane-c41"><div class="day">Yesterday</div><div class="m in">Need subtitles on my TikTok clips<i>8:40 AM</i></div><div class="m out">I can add animated captions, no problem<i>10:53 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Awesome, I&#x27;ll send 10 clips tonight<i>12:06 AM</i></div></section>
+<section class="pane" id="pane-c42"><div class="day">Yesterday</div><div class="m in">Thanks for the last edit, the client loved it!<i>8:47 AM</i></div><div class="m out">Happy to hear that 🙌<i>10:00 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Got another wedding video for you<i>12:13 AM</i></div></section>
+<section class="pane" id="pane-c43"><div class="day">Yesterday</div><div class="m in">Can you cut a podcast into 5 shorts?<i>8:54 AM</i></div><div class="m out">Yes, I will add captions and music too<i>10:07 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, I will add captions and music too</div>Deadline is Friday, is that okay?<i>12:20 AM</i></div></section>
+<section class="pane" id="pane-c44"><div class="day">Yesterday</div><div class="m in">Is the intro ready? We are going live Monday<i>8:01 AM</i></div><div class="m out">Almost done, sending a preview in 1 hour<i>10:14 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, please add our logo at the end<i>12:27 AM</i></div></section>
+<section class="pane" id="pane-c45"><div class="day">Yesterday</div><div class="m in">Hi! I saw your work. Can you edit a 10 min YouTube video?<i>8:08 AM</i></div><div class="m out">Yes sure, send the raw footage and I will start today<i>10:21 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, sending the Drive link now<i>12:34 AM</i></div></section>
+<section class="pane" id="pane-c46"><div class="day">Yesterday</div><div class="m in">Do you do colour grading too?<i>8:15 AM</i></div><div class="m out">Yes, colour grading and sound design included<i>10:28 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, colour grading and sound design included</div>Perfect, how much for a 5 min reel?<i>12:41 AM</i></div></section>
+<section class="pane" id="pane-c47"><div class="day">Yesterday</div><div class="m in">Need subtitles on my TikTok clips<i>8:22 AM</i></div><div class="m out">I can add animated captions, no problem<i>10:35 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Awesome, I&#x27;ll send 10 clips tonight<i>12:48 AM</i></div></section>
+<section class="pane" id="pane-c48"><div class="day">Yesterday</div><div class="m in">Thanks for the last edit, the client loved it!<i>8:29 AM</i></div><div class="m out">Happy to hear that 🙌<i>10:42 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Got another wedding video for you<i>12:55 AM</i></div></section>
+<section class="pane" id="pane-c49"><div class="day">Yesterday</div><div class="m in">Can you cut a podcast into 5 shorts?<i>8:36 AM</i></div><div class="m out">Yes, I will add captions and music too<i>10:49 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in"><div class="q"><b>You</b>Yes, I will add captions and music too</div>Deadline is Friday, is that okay?<i>12:02 AM</i></div></section>
+<section class="pane" id="pane-c50"><div class="day">Yesterday</div><div class="m in">Is the intro ready? We are going live Monday<i>8:43 AM</i></div><div class="m out">Almost done, sending a preview in 1 hour<i>10:56 AM <u>&#10003;&#10003;</u></i></div><div class="day">Today</div><div class="m in">Great, please add our logo at the end<i>12:09 AM</i></div></section>
+    </div>
+    <footer id="composer">
+      <div class="field">
+        <span>&#128578;</span>
+        <input id="text" placeholder="Message" autocomplete="off">
+        <button id="clip">&#128206;</button>
+        <button id="cam">&#128247;</button>
+      </div>
+      <button id="mic" class="go">&#127908;</button>
+      <button id="send" class="go">&#10148;</button>
+    </footer>
+  </div>
+
+  <!-- SCREEN 3: contact info (tap the name in the chat header) -->
+  <div id="info" hidden>
+    <header class="bar"><button id="i-close">&#8592;</button><span style="flex:1"></span><button>&#8942;</button></header>
+    <div class="body">
+      <div class="av big" id="i-av"><span></span></div>
+      <!-- contenteditable = you can click and type to rename. Saved in script.js -->
+      <h2 id="i-name" contenteditable="true" spellcheck="false"></h2>
+      <p id="i-num" contenteditable="true" spellcheck="false"></p>
+      <div class="actions">
+        <div><b>&#128222;</b>Audio</div><div><b>&#127909;</b>Video</div><div><b>&#128269;</b>Search</div>
+      </div>
+      <div class="media-head"><span>Media, links, and docs</span><span id="media-count">0 &#8250;</span></div>
+      <div id="media"></div>
+      <div class="row-i"><b>&#128450;</b><div>Manage storage<small>84.9 MB</small></div></div>
+      <div class="row-i"><b>&#128276;</b><div>Notifications</div></div>
+      <div class="row-i"><b>&#128444;</b><div>Media visibility</div></div>
+      <div class="row-i"><b>&#128274;</b><div>Encryption<small>Messages and calls are end-to-end encrypted. Tap to verify.</small></div></div>
+    </div>
+  </div>
+
+  <!-- FLOATING TOOLS. #hide removes the whole group (itself too). Double-click any top bar to bring it back. -->
+  <div id="tools">
+    <button class="tool" id="theme" title="Light / dark">&#9728;</button>
+    <button class="tool list-only" id="shuffle" title="Shuffle contacts">&#128256;</button>
+    <button class="tool chat-only" id="wallbtn" title="Chat wallpaper">&#128444;</button>
+    <button class="tool chat-only" id="who" title="Who is sending?">Me</button>
+    <button class="tool" id="hide" title="Hide these buttons">&#128065;</button>
+  </div>
+</div>
+
+<input type="file" id="pick-av" accept="image/*" hidden>
+<input type="file" id="pick-wall" accept="image/*" hidden>
+<input type="file" id="pick-img" accept="image/*" hidden>
+<script src="script.js"></script>
+</body>
+</html>
